@@ -1,0 +1,20 @@
+Software is a set of instructions, data or programs used to operate computers and execute specific tasks. It is the opposite of hardware, which describes the physical aspects of a computer.
+
+types of application?
+Web browsers
+Presentation software
+Spreadsheet software
+Graphic software
+Word processors
+Database software
+Multimedia software
+Education software
+Information software
+Content access software
+
+what is programming?
+A computer program consists of code that is executed on a computer to perform particular tasks. This code is written by programmers.Programming is the process of giving machines a set of instructions that describe how a program should be carried out. Programmers will spend their whole careers learning a variety of programming languages and tools so they can effectively build computer programs.
+
+What is Python?
+Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.
+
