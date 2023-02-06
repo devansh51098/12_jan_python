@@ -1,0 +1,1 @@
+Memory management in Python is performed by the Python memory manager and Python Garbage Collector. The memory manager handles memory allocation, deallocation, and Python objects life-cycle. The garbage collector reclaims memory occupied by objects that are no longer in use by the program. Python uses reference counting and cyclic garbage collection for memory management.
