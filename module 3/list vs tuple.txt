@@ -1,0 +1,9 @@
+What Is a Tuple in Python?
+Tuples are also a sequence data type containing elements of different data types.
+It comes in handy when storing a collection of items, especially if you want those items to be unchanging.A python tuple has the following features - 
+Tuples are used to store heterogeneous and homogeneous data.Tuples are immutable in nature.Tuples are ordered.An index is used to traverse a tuple.
+Tuples are similar to lists. It also preserves the data sequence.
+As tuples are immutable, they are faster than the list because they are static.
+
+The primary difference between tuples and lists is that tuples are immutable as opposed to lists which are mutable. Therefore, it is possible to change a list but not a tuple.The contents of a tuple cannot change once they have been created in Python due to the immutability of tuples.There is no way to keep changing tuples. Error message if you attempt to change one of the items.
+

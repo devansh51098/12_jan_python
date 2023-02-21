@@ -1,0 +1,18 @@
+There can be different ways for checking if the key already exists, we have covered the following approaches:
+
+Using the Inbuilt method keys() 
+Using if and in
+Using has_key() method
+Using get() method
+Check If Key Exists using the Inbuilt method keys() 
+Using the Inbuilt method keys() method returns a list of all the available keys in the dictionary. With the Inbuilt method keys(), use if statement with ‘in’ operator to check if the key is present in the dictionary or not. 
+Check If Key Exists using has_key() method
+Using has_key() method returns true if a given key is available in the dictionary, otherwise, it returns a false. With the Inbuilt method has_key(), use the if statement to check if the key is present in the dictionary or not. 
+
+Note – has_keys() method has been removed from the Python3 version. Therefore, it can be used in Python2 only. 
+Check If Key Exists using get()
+Using the Inbuilt method get() method returns a list of available keys in the dictionary. With the Inbuilt method keys(), use the if statement to check if the key is present in the dictionary or not. If the key is present it will print “Present” Otherwise it will print “Not Present”.
+Handling ‘KeyError’ Exception
+Use try and except to handle the KeyError exception to determine if a key is present in a dict. The KeyError exception is generated if the key you’re attempting to access is not present in the dictionary.
+Using count() method
+count() method can be used to check if the key exists in the dictionary, if the count of the key is 1 then the key is present else not.

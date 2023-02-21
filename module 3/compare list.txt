@@ -1,0 +1,5 @@
+1.) sort() method or the sorted() function with the == operator
+2.) set() function with the == operator
+3.) reduce() and map() functions with the == operator
+4.) collection.Counter() class with the == operator
+5.) list comprehension

@@ -1,0 +1,7 @@
+The tuple elements are enclosed inside the parenthesis, while dictionary elements are present in the form of a key-value pair and are enclosed between curly brackets.In this article, we will show you how to convert a python tuple into a dictionary. The following are the methods to convert a tuple into a dictionary −
+
+Using dict() function
+
+Using Dictionary Comprehension and enumerate() function
+
+Using zip() and dict() functions

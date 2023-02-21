@@ -1,0 +1,7 @@
+1. Using list.pop() function
+The simplest approach is to use the list’s pop([i]) function, which removes an element present at the specified position in the list. If we don’t specify any index, pop() removes and returns the last element in the list.
+2. Using Slicing
+We know that lists can be sliced in Python. We can use slicing to remove the last element from a list. The idea is to obtain a sublist containing all elements of the list except the last one. Since slice operation returns a new list, we have to assign the new list to the original list. This can be done using the expression l = l[:-1], where l is your list. l[:-1] is short for l[0:len(l)-1].
+3. Using del statement
+Another way to remove an element from a list using its index is the del statement. It differs from the pop() function as it does not return the removed element. Unlike the slicing function, this doesn’t create a new list.
+the removed element would be 25.

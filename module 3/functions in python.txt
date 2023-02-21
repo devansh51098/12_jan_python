@@ -1,0 +1,19 @@
+Functions are the basic building block of any python program, defined as the organized block of reusable code, which can be called whenever required.
+
+A function is used to carry out a specific task. The function might require multiple inputs. When the task is done executing, the function can or can not return one or more values.
+
+There are two types of functions in python:
+
+User-Defined Functions - these types of functions are defined by the user to perform any specific task
+Built-in Functions - These are pre-defined functions in python.
+Function	Description
+len()	Returns the length of a python object
+abs()	Returns the absolute value of a number
+max()	Returns the largest item in a python iterable
+min()	Returns the largest item in a python iterable
+sum()	Sum() in Python returns the sum of all the items in an iterator
+type() The type() in Python returns the type of a python object
+help() Executes the python built-in interactive help console
+input() Allows the user to give input
+format() Formats a specified value
+bool() Returns the boolean value of an object
