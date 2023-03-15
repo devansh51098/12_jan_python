@@ -1,0 +1,289 @@
+1) Return the FirstName, LastName , ProductName and Sales Price for all products sold in month of 
+October 2022 
+
+:--  SELECT tblcustomer.first_name,tblcustomer.last_name,tblsales.sales_price,tblproduct.prd_name FROM tblsales
+JOIN tblcustomer ON tblcustomer.cust_id=tblsales.cust_id_fk
+JOIN tblproduct ON tblproduct.prd_id=tblsales.prd_id_fk
+
+
+2) Return the CustomerID, FirstName, and LastName of those individuals in the Customer table who 
+have made no Sales purchases.
+
+:--  SELECT tblcustomer.first_name,tblcustomer.last_name,tblcustomer.cust_id FROM tblcustomer
+
+
+
+3) Return the FirstName, LastName, SalePrice, Recommended SalePrice, and the difference between the 
+SalePrice and Recommended SalePrice for all Sales. The difference must be returned as a positive 
+number.
+
+:---  SELECT tblcustomer.first_name,tblcustomer.last_name,tblsales.sales_price,tblproduct.recommended_price,tblproduct.recommended_price-tblsales.sales_price FROM tblsales
+JOIN tblcustomer ON tblcustomer.cust_id=tblsales.cust_id_fk
+JOIN tblproduct ON tblproduct.prd_id=tblsales.prd_id_fk
+
+4) Add the following Customer and Sale information to the database. (using store procedure) 
+FirstName : Mansi 
+LastName : Joshi
+City: Mumbai 
+State:MH 
+Zip:400001 
+ProductID:3 
+SalePrice:205 
+SaleDate:05/12/2022
+
+:---  
+
+delimiter $$
+
+
+create procedure insertdata(f varchar(200),l varchar(200),c varchar(200),s varchar(200),z int(255),p int(255),m int(255),n varchar(200))
+
+
+
+begin
+
+     insert into tblcustomer(first_name,last_name,city,state,zip) values(f,l,c,s,z);
+     insert INTO tblproduct(prd_id) VALUES(p); 
+     insert INTO tblsales(sales_price,sales_date) VALUES(m,n);
+
+
+END
+
+CALL Insertdata(mansi,joshi,mumbai,mh,400001,3,205,05/12/2022);
+
+
+5) Return the Product Category and the average Sale Price for those customers who have purchased two 
+or more products.
+
+:---- SELECT tblsales.sales_price,tblproduct.category,AVG(prd_id_fk>2) FROM tblsales
+JOIN tblproduct ON tblproduct.prd_id=tblsales.prd_id_fk;
+
+
+6) Update the Sale Price to the Recommended Sale Price of those Sales occurring between 
+6/10/2022and6/20/2022.
+
+:--- 
+
+DELIMITER $$
+
+CREATE TRIGGER update_trigger AFTER update ON tblsales FOR EACH ROW
+
+BEGIN
+
+
+insert INTO test(price,date,action_performed) VALUES(sales_price,sales_date,"record_updated!");
+
+
+END
+
+cll inaertdata()
+
+7) Number of Sales by Product Category where the average Recommended Priceis10 or more dollars 
+greater than the average Sale Price.
+
+:---- SELECT tblproduct.recommended_price,tblproduct.category,tblsales.sales_price,AVG(recommended_price>sales_price) FROM tblsales
+JOIN tblproduct ON tblproduct.prd_id=tblsales.prd_id_fk;
+
+8) Largest order taken by each salesperson, date wise.
+
+:----- SELECT tblsales.sales_price,tblsales.sales_date, max(tblsales.sales_price) from tblsales
+
+9) Without using a declared iterative construct, return Sale Date and the running total for all sales, 
+ordered by the Sale Date in Ascending Order.
+
+:---- SELECT tblsales.sales_date, tblsales.prd_id_fk  FROM tblsales
+ORDER BY sales_date ASC
+
+
+CREATE TABLE empdept
+(
+     deptId int(200) PRIMARY KEY,
+     deptname varchar(200),
+     dept_off varchar(200),
+     depthead int(200) 
+
+
+
+
+)
+
+INSERT INTO empdept(deptId,deptname,dept_off,depthead) VALUES("E-101","HR","Monday",105);
+INSERT INTO empdept(deptId,deptname,dept_off,depthead) VALUES("E-102","Development","Tuesday",101);
+INSERT INTO empdept(deptId,deptname,dept_off,depthead) VALUES("E-103","House Keeping","Saturday",103);
+INSERT INTO empdept(deptId,deptname,dept_off,depthead) VALUES("E-104","Sales","Sunday",104);
+INSERT INTO empdept(deptId,deptname,dept_off,depthead) VALUES("E-105","Purchase","Tuesday",104);
+
+
+CREATE TABLE employee
+(
+
+      Empid int(200) PRIMARY KEY,
+      empname varchar(200),
+      department varchar(200),
+      contactno int(200),
+      emailid varchar(200),
+
+
+FOREIGN KEY department REFRENCES empdept(deptid)
+
+) 
+
+CREATE TABLE empsalary
+(
+    Empid_fk int(200),
+    Salary int(200),
+    ispermenant varchar(200),
+
+FOREIGN KEY (Empid_fk) REFRENCES employee(empid)
+
+
+
+)
+
+CREATE TABLE project
+(
+    Projectid int(200) PRIMARY KEY,
+    duration int(200)
+
+
+)
+
+
+INSERT INTO project(Projectid,duration)VALUES("p-1",23);
+INSERT INTO project(Projectid,duration)VALUES("p-2",15);
+INSERT INTO project(Projectid,duration)VALUES("p-3",45);
+INSERT INTO project(Projectid,duration)VALUES("p-4",2);
+INSERT INTO project(Projectid,duration)VALUES("p-5",30);
+
+
+CREATE TABLE country
+ ( cid varchar(200) PRIMARY KEY,
+ cname varchar(200) );
+
+INSERT INTO country(cid,cname)VALUES("c-1","India");
+INSERT INTO country(cid,cname)VALUES("c-2","USA");
+INSERT INTO country(cid,cname)VALUES("c-3","China");
+INSERT INTO country(cid,cname)VALUES("c-4","Pakistan");
+INSERT INTO country(cid,cname)VALUES("c-5","Russia");
+
+
+
+CREATE TABLE clienttable 
+( Clientid varchar(200) PRIMARY KEY,
+ Clientname varchar(200),
+ cid_fk varchar(200),
+ FOREIGN KEY (cid_fk) REFERENCES country(cid)
+
+ )
+
+INSERT INTO clienttable(Clientid,Clientname,cid_fk)VALUES("cl-1","ABC Group","c-1");
+INSERT INTO clienttable(Clientid,Clientname,cid_fk)VALUES("cl-2","PQR","c-1");
+INSERT INTO clienttable(Clientid,Clientname,cid_fk)VALUES("cl-3","XYZ","c-2");
+INSERT INTO clienttable(Clientid,Clientname,cid_fk)VALUES("cl-4","tech altum","c-3");
+INSERT INTO clienttable(Clientid,Clientname,cid_fk)VALUES("cl-5","mnp","c-5")
+
+Queries :
+
+1) Select the detail of the employee whose name start with P.
+
+:-- select * from employee where emp_name like 'p%'
+
+2) How many permanent candidate take salary more than 5000.
+
+:-- select count(salary) as count from empsalary where ispermanent='yes' and salary>5000
+
+3) Select the detail of employee whose emailed is in Gmail.
+
+:-- select * FROM employee  where email_id like '%gmail%'
+
+4) Select the details of the employee who work either for department E-104 or E-102.
+
+:--  select * from employee where department in ('E-102','E-104')
+
+5) What is the department name for DeptID E-102?
+
+:-- select dept_name from empdept where dept_id ='E-102'
+
+6) What is total salary that is paid to permanent employees?
+
+:-- SELECT SUM(salary) FROM empsalary WHERE ispermanent="yes"
+
+7) List name of all employees whose name ends with a.
+
+:-- select * FROM employee where emp_name like '%a'
+
+8) List the number of department of employees in each project.
+
+:-- select count(emp_id_fk) as employee, project_id_fk from empproject group by project_id_fk
+
+9) How many project started in year 2010.
+
+:-- select count(project_id_fk) as project from empproject where start_year=2010
+
+10) How many project started and finished in the same year.
+
+:--- select count(project_id_fk) as project from empproject where start_year=end_year
+
+11) Select the name of the employee whose name's 3rd character is 'h'.
+
+:--- select * FROM employee where emp_name like '__h%'
+
+12) Select the department name of the company which is assigned to the employee whose employee id is 
+grater 103.
+
+:---- select dept_name from empdept where dept_id in (select department from employee where emp_id>103)
+
+13) Select the name of the employee who is working under Abhishek.
+
+:--- select emp_name from employee where emphead_id =(select emp_id from employee where emp_name='abhishek')
+
+14) Select the name of the employee who is department head of HR.
+
+:---  select emp_name from employee where emp_id =(select depthead_fk from empdept where dept_name='HR')
+
+15) Select the name of the employee head who is permanent.
+
+:---- select emp_name from employee where emp_id in(select emp_id from employee) and emp_id in(select emp_id_fk from empsalary where ispermanent='yes')
+
+16) Select the name and email of the Dept Head who is not Permanent.
+
+:--- select emp_name, email_id from employee where emp_id in(select depthead_fk from empdept ) and emp_id in(select emp_id_fk from empsalary where ispermanent='no')
+
+17) Select the employee whose department off is Monday.
+
+:--- select * from employee where department in(select dept_id from empdept where dept_off='monday')
+
+18) select the Indian clients details.
+
+:--- select * from clienttable where c_id_fk in(select c_id from country where c_name='india')
+
+19) select the details of all employee working in development department.
+
+:--- select * from employee where department in(select dept_id from empdept where dept_name='development')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
